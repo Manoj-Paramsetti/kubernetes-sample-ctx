@@ -12,10 +12,6 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd-test
-  ignoreDifferences:
-    - kind: Deployment
-      name: guestbook-ui-ignore
-      namespace: argocd-test
   syncPolicy:
     automated:
       prune: true
