@@ -14,10 +14,8 @@ spec:
     namespace: sparrowpay
   ignoreDifferences:
     - group: apps
-      jsonPointers:
-        - /argocd/untracked
       kind: Deployment
-      name: sparrowpay-payment-deployment
+      name: guestbook-ui-ignore
       namespace: sparrowpay
   syncPolicy:
     automated:
