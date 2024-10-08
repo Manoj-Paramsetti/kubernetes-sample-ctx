@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sparrowpay-payments-argocd
+  name: sample-argocd
   namespace: argocd
 spec:
   project: default
@@ -11,12 +11,12 @@ spec:
     path: argocd
   destination:
     server: https://kubernetes.default.svc
-    namespace: sparrowpay
+    namespace: argocd-test
   ignoreDifferences:
     - group: apps
       kind: Deployment
       name: guestbook-ui-ignore
-      namespace: sparrowpay
+      namespace: argocd-test
   syncPolicy:
     automated:
       prune: false
