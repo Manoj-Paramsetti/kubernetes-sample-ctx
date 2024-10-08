@@ -13,7 +13,7 @@ spec:
     server: https://kubernetes.default.svc
     namespace: argocd-test
   ignoreDifferences:
-    - group: apps
+    - group: apps/v1
       kind: Deployment
       name: guestbook-ui-ignore
       namespace: argocd-test
