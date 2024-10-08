@@ -9,6 +9,11 @@ spec:
     repoURL: git@github.com:Manoj-Paramsetti/kubernetes-sample-ctx.git
     targetRevision: main
     path: argocd
+    directory:
+      recurse: false
+      jsonnet: {}
+      exclude: '{deployment1.yaml}'
+
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd-test
