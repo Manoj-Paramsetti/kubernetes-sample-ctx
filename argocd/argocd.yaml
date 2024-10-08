@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sparrowpay-payments-argocd
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:Manoj-Paramsetti/kubernetes-sample-ctx.git
+    targetRevision: main
+    path: argocd
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: sparrowpay
+  ignoreDifferences:
+    - group: apps
+      jsonPointers:
+        - /argocd/untracked
+      kind: Deployment
+      name: sparrowpay-payment-deployment
+      namespace: sparrowpay
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
